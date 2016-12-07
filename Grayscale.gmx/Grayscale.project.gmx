@@ -8,11 +8,16 @@
   <sprites name="sprites">
     <sprite>sprites\spr_arrow</sprite>
     <sprite>sprites\spr_b</sprite>
+    <sprite>sprites\spr_as</sprite>
     <sprite>sprites\spr_runner_b</sprite>
     <sprite>sprites\spr_runner_w</sprite>
-    <sprite>sprites\spr_text</sprite>
-    <sprite>sprites\spr_title_font</sprite>
+    <sprite>sprites\spr_text_b</sprite>
+    <sprite>sprites\spr_text_w</sprite>
+    <sprite>sprites\spr_title_font_b</sprite>
+    <sprite>sprites\spr_title_font_w</sprite>
     <sprite>sprites\spr_w</sprite>
+    <sprite>sprites\spr_coin_b</sprite>
+    <sprite>sprites\spr_coin_w</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_black</background>
@@ -24,19 +29,23 @@
     <script>scripts\scr_draw_title_text.gml</script>
     <script>scripts\scr_enemy_platform.gml</script>
     <script>scripts\scr_input.gml</script>
-    <script>scripts\scr_roll.gml</script>
-    <script>scripts\scr_runner_jump.gml</script>
     <script>scripts\scr_runner_move.gml</script>
     <script>scripts\scr_terrain_scroll.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\ft_HUD</font>
+  </fonts>
   <objects name="objects">
     <object>objects\obj_b</object>
+    <object>objects\obj_as</object>
     <object>objects\obj_main_menu</object>
     <object>objects\obj_runner</object>
     <object>objects\obj_surface_parent</object>
     <object>objects\obj_terrain_parent</object>
     <object>objects\obj_terrain_stream</object>
     <object>objects\obj_w</object>
+    <object>objects\obj_hud</object>
+    <object>objects\obj_coin</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main_menu</room>

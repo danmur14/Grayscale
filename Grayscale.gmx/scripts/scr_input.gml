@@ -11,4 +11,4 @@ down_key_pressed = keyboard_check_pressed(ord("S"));
 left_key_pressed = -keyboard_check_pressed(ord("A"));
 right_key_pressed = keyboard_check_pressed(ord("D"));
 jump_key = keyboard_check_pressed(vk_space);
-roll_key = keyboard_check_pressed(vk_shift);
+shift_key = keyboard_check_pressed(vk_shift);

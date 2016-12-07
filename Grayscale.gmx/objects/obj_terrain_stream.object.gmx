@@ -25,9 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//stuff
-create = false;
-instance_create(x, y - 32, obj_w);
+            <string>create = false;
+rand = 0;
+tstring = "0";
+//first creation
 instance_create(x, y + 32, obj_b);
 alarm[0] = 32;
 </string>
@@ -79,10 +80,38 @@ create = true;
             <kind>1</kind>
             <string>//stream objects
 if(create == true) {
-    alarm[0] = 32;
-    instance_create(x, y - 32, obj_w);
-    instance_create(x, y + 32, obj_b);
+    //prepare next
+    alarm[0] = 16;
     create = false;
+    
+    //random terrain stream
+    if(string_char_at(tstring, 1) == "4" &amp;&amp; string_char_at(tstring, 2) == "4") {
+        rand = choose(0,1,2,3);
+    }
+    else {
+        rand = choose(0,1,2,3,4);
+    }
+    tstring = string(rand) + tstring;
+    switch(rand) {
+        case 0:
+            instance_create(x, y + 32, obj_b);            
+            break;
+        case 1:
+            instance_create(x, y + 32, obj_w);
+            break;
+        case 2:
+            instance_create(x, y - 16, obj_coin);
+            instance_create(x, y + 32, obj_w);
+            break;
+        case 3:
+            instance_create(x, y - 16, obj_coin);
+            instance_create(x, y + 32, obj_b);
+            break;
+        case 4:
+            instance_create(x, y, obj_coin);
+            break;
+    }    
+    
 }
 
 </string>

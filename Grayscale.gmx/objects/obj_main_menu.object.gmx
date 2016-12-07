@@ -61,7 +61,12 @@ arrowy = 0;
 var move = 0;
 move -= max(up_key_pressed, 0);
 move += max(down_key_pressed, 0);
-
+if(selected == 1) {
+    move += max(right_key_pressed, 0);
+}
+if(selected == 2) {
+    move -= max(-left_key_pressed, 0);
+}
 if(move != 0) {
     selected += move;
     if(selected &lt; 0) {
@@ -75,23 +80,24 @@ if(move != 0) {
 switch(selected) {
     case 0:
     {
-        arrowx = 86;
-        arrowy = 62; 
+        arrowx = 82;
+        arrowy = 70; 
         break;
     }
     case 1:
     {
-        arrowx = 30;
+        arrowx = 20;
         arrowy = 90; 
         break;
     }
     case 2:
     {
-        arrowx = 180;
+        arrowx = 175;
         arrowy = 90; 
         break;
     }
 }
+//select menu item
 if(jump_key) {
     switch(selected) {
         case 0:
@@ -111,6 +117,26 @@ if(jump_key) {
         }
     }
 }
+//draw blocks
+var i = 0;
+var block;
+if(obj_runner.colorbool) {
+    while(i &lt; 10) {
+        block[i] = instance_create(32 * i, 128, obj_w);
+        block[i].hsp = 0;
+        i++;
+    }
+}
+else {
+    while(i &lt; 10) {
+        block[i] = instance_create(32 * i, 128, obj_b);
+        block[i].hsp = 0;
+        i++;
+    }
+}
+
+
+
 </string>
           </argument>
         </arguments>
@@ -134,11 +160,21 @@ if(jump_key) {
           <argument>
             <kind>1</kind>
             <string>//x middle 128 y 64
-scr_draw_title_text(70, 30, "grayscale", spr_title_font);
-scr_draw_title_text(108, 70, "start", spr_title_font);
-scr_draw_text(40, 90, "extras", spr_text);
-scr_draw_text(190, 90, "quit", spr_text);
-draw_sprite(spr_arrow, 1, arrowx, arrowy);
+if(obj_runner.colorbool) {
+    scr_draw_title_text(63, 30, "grayscale", spr_title_font_w);
+    scr_draw_title_text(96, 70, "start", spr_title_font_w);
+    scr_draw_text(30, 90, "extras", spr_text_w);
+    scr_draw_text(185, 90, "quit", spr_text_w);
+    draw_sprite(spr_arrow, 1, arrowx, arrowy);
+}
+else {
+    scr_draw_title_text(63, 30, "grayscale", spr_title_font_b);
+    scr_draw_title_text(96, 70, "start", spr_title_font_b);
+    scr_draw_text(30, 90, "extras", spr_text_b);
+    scr_draw_text(185, 90, "quit", spr_text_b);
+    draw_sprite(spr_arrow, 0, arrowx, arrowy);
+}
+
 </string>
           </argument>
         </arguments>

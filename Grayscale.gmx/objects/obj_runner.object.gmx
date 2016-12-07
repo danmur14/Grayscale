@@ -34,7 +34,7 @@ grav = 0.4;
 vsp = 0;
 hsp = 0;
 msp = 2;
-jsp = 6;
+jsp = 5;
 
 //status
 color = "black";
@@ -44,7 +44,7 @@ hlth = 5;
 
 //jumping variables
 curjump = 0;
-maxjumps = 2;
+maxjumps = 1;
 jumping = false;
 falling = false;
 dir = "right";
@@ -74,30 +74,6 @@ dir = "right";
             <kind>1</kind>
             <string>script_execute(state);
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>x = xstart;
-y = ystart;
 </string>
           </argument>
         </arguments>
