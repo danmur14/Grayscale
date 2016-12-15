@@ -1,0 +1,3 @@
+Bugs for Grayscale:
+Collions aren't pixel perfect
+Terrain moves for a frame after death
