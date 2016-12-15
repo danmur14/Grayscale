@@ -57,6 +57,7 @@
     <object>objects\obj_coin_test</object>
     <object>objects\obj_spikes_w</object>
     <object>objects\obj_spikes_b</object>
+    <object>objects\obj_music</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main_menu</room>
