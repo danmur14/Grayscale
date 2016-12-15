@@ -48,7 +48,7 @@ if(colorbool) {
     }
     
     //spikes
-    if (place_meeting(x+2, y, obj_spikes_w) || place_meeting(x, y+2, obj_spikes_w) || place_meeting(x+2, y+2, obj_spikes_w)) {
+    if (place_meeting(x+1, y, obj_spikes_w) || place_meeting(x, y+1, obj_spikes_w) || place_meeting(x+1, y+1, obj_spikes_w) || place_meeting(x-1, y+1, obj_spikes_w)) {
         state = scr_runner_death;
     }
     //inside block death
@@ -81,7 +81,7 @@ else {
     }
     
     //spikes
-    if (place_meeting(x+2, y, obj_spikes_b) || place_meeting(x, y+2, obj_spikes_b) || place_meeting(x+2, y+2, obj_spikes_b)) {
+    if (place_meeting(x+1, y, obj_spikes_b) || place_meeting(x, y+1, obj_spikes_b) || place_meeting(x+1, y+1, obj_spikes_b) || place_meeting(x-1, y+1, obj_spikes_b)) {
         state = scr_runner_death;
     }
     //inside block death

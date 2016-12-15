@@ -52,18 +52,22 @@ image_speed = 0.2;
             <string>event_inherited();
 //destroy and add coin
 if(place_meeting(x+1,y,obj_runner)) {
+    audio_play_sound(coin, 1, false);
     instance_destroy();
     obj_hud.coins++;
 }
 if(place_meeting(x-1,y,obj_runner)) {
+    audio_play_sound(coin, 1, false);
     instance_destroy();
     obj_hud.coins++;
 }
 if(place_meeting(x,y+1,obj_runner)) {
+    audio_play_sound(coin, 1, false);
     instance_destroy();
     obj_hud.coins++;
 }
 if(place_meeting(x,y-1,obj_runner)) {
+    audio_play_sound(coin, 1, false);
     instance_destroy();
     obj_hud.coins++;
 }

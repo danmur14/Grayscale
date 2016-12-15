@@ -49,7 +49,6 @@ jumping = false;
 falling = false;
 dir = "right";
 
-
 </string>
           </argument>
         </arguments>
