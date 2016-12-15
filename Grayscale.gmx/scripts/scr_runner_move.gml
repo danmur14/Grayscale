@@ -46,6 +46,11 @@ if(colorbool) {
         vsp = 0;
         curjump = 0;
     }
+    
+    //spikes
+    if (place_meeting(x+2, y, obj_spikes_w) || place_meeting(x, y+2, obj_spikes_w) || place_meeting(x+2, y+2, obj_spikes_w)) {
+        state = scr_runner_death;
+    }
     //inside block death
     if(place_meeting(x + 2, y, obj_w) && place_meeting(x - 2, y, obj_w) && place_meeting(x, y + 2, obj_w) && place_meeting(x, y - 2, obj_w)) {
         state = scr_runner_death;
@@ -74,6 +79,11 @@ else {
         vsp = 0;
         curjump = 0;
     }
+    
+    //spikes
+    if (place_meeting(x+2, y, obj_spikes_b) || place_meeting(x, y+2, obj_spikes_b) || place_meeting(x+2, y+2, obj_spikes_b)) {
+        state = scr_runner_death;
+    }
     //inside block death
     if(place_meeting(x + 2, y, obj_b) && place_meeting(x - 2, y, obj_b) && place_meeting(x, y + 2, obj_b) && place_meeting(x, y - 2, obj_b)) {
         state = scr_runner_death;
@@ -92,4 +102,7 @@ if(enter_key && instance_exists(obj_runner_test)) {
 if(x < 0 || y > 128) {
     state = scr_runner_death;
 }
+
+
+
 

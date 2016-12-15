@@ -18,6 +18,7 @@
     <sprite>sprites\spr_w</sprite>
     <sprite>sprites\spr_coin_b</sprite>
     <sprite>sprites\spr_coin_w</sprite>
+    <sprite>sprites\spr_spikes</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_black</background>
@@ -51,6 +52,8 @@
     <object>objects\obj_test</object>
     <object>objects\obj_coin</object>
     <object>objects\obj_coin_test</object>
+    <object>objects\obj_spikes_w</object>
+    <object>objects\obj_spikes_b</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_main_menu</room>
