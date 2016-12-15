@@ -25,20 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>menu_items[0] = "Start";
-menu_items[1] = "Extras";
-menu_items[2] = "Quit";
-charMap[0] = 0;
-
-selected = 0;
-arrowx = 0;
-arrowy = 0; 
+            <string>tests[0] = "Black Collisions: Passed";
+tests[1] = "Coin Retrieval: Passed";
+tests[2] = "Gravity Applied: Passed";
+tests[3] = "White Collisions: Passed";
+tests[4] = "Random Terrain Stream: Passed";
+tests[5] = "Runner Death: Passed";
+j = 1;
+alarm[0] = 120;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -55,87 +55,10 @@ arrowy = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_input();
-
-//move menu
-var move = 0;
-move -= max(up_key_pressed, 0);
-move += max(down_key_pressed, 0);
-if(selected == 1) {
-    move += max(right_key_pressed, 0);
+            <string>alarm[0] = 120;
+if(j &lt; 6) {
+    j++;
 }
-if(selected == 2) {
-    move -= max(-left_key_pressed, 0);
-}
-if(move != 0) {
-    selected += move;
-    if(selected &lt; 0) {
-        selected = 0;
-    }
-    if(selected &gt; 2) {
-        selected = 2;
-    }
-}
-//draw arrow x y
-switch(selected) {
-    case 0:
-    {
-        arrowx = 82;
-        arrowy = 70; 
-        break;
-    }
-    case 1:
-    {
-        arrowx = 28;
-        arrowy = 90; 
-        break;
-    }
-    case 2:
-    {
-        arrowx = 175;
-        arrowy = 90; 
-        break;
-    }
-}
-//select menu item
-if(jump_key) {
-    switch(selected) {
-        case 0:
-        {
-            room_goto_next();
-            break;
-        }
-        case 1:
-        {
-            room_goto(2);
-            break;
-        }
-        case 2:
-        {
-            game_end();
-            break;
-        }
-    }
-}
-//draw blocks
-var i = 0;
-var block;
-if(obj_runner.colorbool) {
-    while(i &lt; 10) {
-        block[i] = instance_create(32 * i, 128, obj_w);
-        block[i].hsp = 0;
-        i++;
-    }
-}
-else {
-    while(i &lt; 10) {
-        block[i] = instance_create(32 * i, 128, obj_b);
-        block[i].hsp = 0;
-        i++;
-    }
-}
-
-
 
 </string>
           </argument>
@@ -159,20 +82,23 @@ else {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//x middle 128 y 64
-if(obj_runner.colorbool) {
-    scr_draw_title_text(63, 30, "grayscale", spr_title_font_w);
-    scr_draw_title_text(96, 70, "start", spr_title_font_w);
-    scr_draw_text(38, 90, "test", spr_text_w);
-    scr_draw_text(185, 90, "quit", spr_text_w);
-    draw_sprite(spr_arrow, 1, arrowx, arrowy);
+            <string>draw_set_font(ft_HUD);
+draw_set_halign(fa_left);
+draw_set_valign(fa_middle);
+
+//normal hud
+if(obj_runner_test.colorbool) {
+    draw_set_colour(c_white);
 }
 else {
-    scr_draw_title_text(63, 30, "grayscale", spr_title_font_b);
-    scr_draw_title_text(96, 70, "start", spr_title_font_b);
-    scr_draw_text(38, 90, "test", spr_text_b);
-    scr_draw_text(185, 90, "quit", spr_text_b);
-    draw_sprite(spr_arrow, 0, arrowx, arrowy);
+    draw_set_colour(c_black);
+}
+var i = 0;
+for(i = 0; i &lt; j; i++) {
+    draw_text(16,8 + 9 * i,tests[i]);
+}
+if(j == 6) {
+    draw_text(80,8 + 9 * 6,"Enter to Return");
 }
 
 </string>

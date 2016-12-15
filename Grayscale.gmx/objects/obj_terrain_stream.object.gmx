@@ -79,7 +79,7 @@ create = true;
           <argument>
             <kind>1</kind>
             <string>//stream objects
-if(create == true) {
+if(create == true &amp;&amp; !global.pause) {
     //prepare next
     alarm[0] = 16;
     create = false;

@@ -12,3 +12,4 @@ left_key_pressed = -keyboard_check_pressed(ord("A"));
 right_key_pressed = keyboard_check_pressed(ord("D"));
 jump_key = keyboard_check_pressed(vk_space);
 shift_key = keyboard_check_pressed(vk_shift);
+enter_key = keyboard_check_pressed(vk_enter);

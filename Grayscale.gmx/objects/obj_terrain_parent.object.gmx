@@ -27,8 +27,7 @@
             <kind>1</kind>
             <string>image_speed = 0;
 hsp = 2;
-
-
+global.pause = 0;
 </string>
           </argument>
         </arguments>
@@ -54,6 +53,10 @@ hsp = 2;
             <string>if(x &lt; -100) {
     instance_destroy();
 }
+if(global.pause) {
+    hsp = 0;
+}
+script_execute(scr_terrain_scroll);
 </string>
           </argument>
         </arguments>

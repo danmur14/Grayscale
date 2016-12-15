@@ -51,7 +51,10 @@ alarm[0] = 30;
           <argument>
             <kind>1</kind>
             <string>alarm[0] = 30;
-distance++;
+if(!global.pause) {
+    distance++;
+}
+
 </string>
           </argument>
         </arguments>
@@ -77,16 +80,53 @@ distance++;
             <string>draw_set_font(ft_HUD);
 draw_set_halign(fa_left);
 draw_set_valign(fa_middle);
-if(obj_runner.colorbool) {
-    draw_set_colour(c_white);
-    draw_sprite(spr_coin_w, 0, 216, 8);
+//death screen
+if(global.pause) {
+    if(obj_runner.colorbool) {
+        draw_set_colour(c_white);
+        draw_sprite(spr_coin_w, 0, 216, 8);
+        //hud values
+        draw_text(16,8,string(distance) + "m");
+        draw_text(224, 8, "x" + string(coins));
+        //summary
+        draw_rectangle(84, 32, 172, 80, false);
+        draw_set_colour(c_black);
+        draw_text(100,36,"Meters:" + string(distance));
+        draw_text(106,48,"Coins:" + string(coins));
+        draw_text(110,60,"Retry?");
+        draw_text(94,72,"Press Enter");
+    }
+    else {
+        draw_set_colour(c_black);
+        draw_sprite(spr_coin_b, 0, 216, 8);
+        //hud values
+        draw_text(16,8,string(distance) + "m");
+        draw_text(224, 8, "x" + string(coins));
+        //summary
+        draw_rectangle(84, 32, 172, 80, false);
+        draw_set_colour(c_white);
+        draw_text(102,36,"Meters:" + string(distance));
+        draw_text(106,48,"Coins:" + string(coins));
+        draw_text(110,60,"Retry?");
+        draw_text(94,72,"Press Enter");
+    }
+
 }
+//normal hud
 else {
-    draw_set_colour(c_black);
-    draw_sprite(spr_coin_b, 0, 216, 8);
+    if(obj_runner.colorbool) {
+        draw_set_colour(c_white);
+        draw_sprite(spr_coin_w, 0, 216, 8);
+    }
+    else {
+        draw_set_colour(c_black);
+        draw_sprite(spr_coin_b, 0, 216, 8);
+    }
+    draw_text(16,8,string(distance) + "m");
+    draw_text(224, 8, "x" + string(coins));
 }
-draw_text(16,8,string(distance) + "m");
-draw_text(224, 8, "x" + string(coins));
+
+
 
 </string>
           </argument>

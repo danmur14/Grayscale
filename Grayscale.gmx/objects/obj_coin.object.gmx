@@ -50,7 +50,6 @@ image_speed = 0.2;
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-script_execute(scr_terrain_scroll);
 //destroy and add coin
 if(place_meeting(x+1,y,obj_runner)) {
     instance_destroy();
